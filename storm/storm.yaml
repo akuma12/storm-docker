@@ -1,7 +1,57 @@
-storm.zookeeper.servers:
-    - "%zookeeper%"
-nimbus.host: "%nimbus%"
-drpc.servers:
-  - "%nimbus%"
-drpc.port: 3772
-drpc.invocations.port: 3773
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+pacemaker.host:
+- "$pacemaker%"
+pacemaker.port: 2181
+pacemaker.childopts: "-Xmx1024m -Djava.net.preferIPv4Stack=true"
+
+nimbus.host: "%nimbus"
+nimbus.thrift.port: 6627
+nimbus.childopts: "-Xmx1024m -Djava.net.preferIPv4Stack=true"
+
+ui.port: 8772
+ui.childopts: "-Xmx768m -Djava.net.preferIPv4Stack=true"
+
+supervisor.childopts: "-Djava.net.preferIPv4Stack=true"
+
+worker.childopts:
+  -Xmx2600m -Xms2600m -Xss256k -XX:MaxPermSize=128m -XX:PermSize=96m
+  -XX:NewSize=1000m -XX:MaxNewSize=1000m -XX:MaxTenuringThreshold=1 -XX:SurvivorRatio=6
+  -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled
+  -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly
+  -server -XX:+AggressiveOpts -XX:+UseCompressedOops -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true
+#    -Xloggc:/usr/local/storm/logs/gc-worker-%ID%.log -verbose:gc
+#    -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=1m
+#    -XX:+PrintGCDetails -XX:+PrintHeapAtGC -XX:+PrintGCTimeStamps -XX:+PrintClassHistogram
+#    -XX:+PrintTenuringDistribution -XX:-PrintGCApplicationStoppedTime -XX:-PrintGCApplicationConcurrentTime
+#    -XX:+PrintCommandLineFlags -XX:+PrintFlagsFinal
+#    -Dcom.sun.management.jmxremote
+#    -Djava.rmi.server.hostname=ec2-54-175-222-76.compute-1.amazonaws.com
+#    -Dcom.sun.management.jmxremote.ssl=false
+#    -Dcom.sun.management.jmxremote.authenticate=false
+#    -Dcom.sun.management.jmxremote.port=1098
+#    -Dcom.sun.management.jmxremote.rmi.port=1099
+
+storm.local.dir: "/app/storm"
+
+java.library.path: "/usr/lib/jvm/java-8-openjdk-amd64"
+
+supervisor.slots.ports:
+  - 6700
+  - 6701
+  - 6702
+  - 6703

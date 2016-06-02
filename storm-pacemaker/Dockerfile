@@ -1,8 +1,8 @@
 FROM wurstmeister/storm:latest
 MAINTAINER Wurstmeister
-RUN /usr/bin/config-supervisord.sh ui
+RUN /usr/bin/config-supervisord.sh pacemaker
 
-EXPOSE 8080
+EXPOSE 2181
 CMD /usr/bin/start-supervisor.sh
 
 

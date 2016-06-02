@@ -1,5 +1,5 @@
-zookeeper:
-  image: wurstmeister/zookeeper
+pacemaker:
+  image: wurstmeister/storm
   ports: 
     - "49181:2181"
     - "22"
@@ -11,7 +11,7 @@ nimbus:
     - "49627:6627"
     - "22"
   links: 
-    - zookeeper:zk
+    - pacemaker:pacemaker
 supervisor:
   image: wurstmeister/storm-supervisor
   ports:
@@ -19,7 +19,7 @@ supervisor:
     - "22"
   links: 
     - nimbus:nimbus
-    - zookeeper:zk
+    - pacemaker:pacemaker
 ui:
   image: wurstmeister/storm-ui
   ports:
@@ -27,4 +27,4 @@ ui:
     - "22"
   links: 
     - nimbus:nimbus
-    - zookeeper:zk
+    - pacemaker:pacemaker
