@@ -18,7 +18,6 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 RUN echo 'root:akuma12' | chpasswd
 RUN mkdir /var/run/sshd
-USER root
-RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+# RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 EXPOSE 22
