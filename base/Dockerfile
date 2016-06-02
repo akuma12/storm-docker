@@ -12,7 +12,7 @@ RUN \
 
 RUN apt-get update && apt-get install -y supervisor
 
-RUN apt-get install -y openssh
+RUN apt-get install -y openssh-server
 
 # Define working directory.
 WORKDIR /data
@@ -22,6 +22,6 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 RUN echo 'root:akuma12' | chpasswd
 RUN mkdir /var/run/sshd
-# RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 EXPOSE 22
