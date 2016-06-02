@@ -10,7 +10,7 @@ RUN \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk8-installer
 
-RUN apt-get update && apt-get install supervisor
+RUN apt-get update && apt-get install -y supervisor
 
 # Define working directory.
 WORKDIR /data
