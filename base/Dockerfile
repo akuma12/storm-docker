@@ -12,6 +12,8 @@ RUN \
 
 RUN apt-get update && apt-get install -y supervisor
 
+RUN apt-get install -y openssh
+
 # Define working directory.
 WORKDIR /data
 
