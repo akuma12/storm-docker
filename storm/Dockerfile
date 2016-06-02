@@ -1,6 +1,6 @@
-FROM wurstmeister/base
+FROM akuma12/base:latest
 
-MAINTAINER Wurstmeister 
+MAINTAINER akuma12
 
 RUN wget -q -O - http://mirrors.sonic.net/apache/storm/apache-storm-1.0.1/apache-storm-1.0.1.tar.gz | tar -xzf - -C /opt
 

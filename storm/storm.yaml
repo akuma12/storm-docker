@@ -48,7 +48,7 @@ worker.childopts:
 
 storm.local.dir: "/app/storm"
 
-java.library.path: "/usr/lib/jvm/java-8-openjdk-amd64"
+java.library.path: "/usr/lib/jvm/java-8-oracle"
 
 supervisor.slots.ports:
   - 6700

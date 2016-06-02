@@ -1,5 +1,5 @@
-FROM wurstmeister/storm:latest
-MAINTAINER Wurstmeister
+FROM akuma12/storm:latest
+MAINTAINER akuma12
 
 EXPOSE 6700
 EXPOSE 6701

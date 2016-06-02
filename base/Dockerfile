@@ -10,7 +10,6 @@ RUN \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk8-installer
 
-
 # Define working directory.
 WORKDIR /data
 
@@ -19,6 +18,6 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 RUN echo 'root:akuma12' | chpasswd
 RUN mkdir /var/run/sshd
-RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN "sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/g' /etc/ssh/sshd_config"
 
 EXPOSE 22
