@@ -1,10 +1,10 @@
 pacemaker:
-  image: wurstmeister/storm
+  image: akuma12/storm
   ports: 
     - "49181:2181"
     - "22"
 nimbus:
-  image: wurstmeister/storm-nimbus
+  image: akuma12/storm-nimbus
   ports:
     - "49773:3773"
     - "49772:3772"
@@ -13,7 +13,7 @@ nimbus:
   links: 
     - pacemaker:pacemaker
 supervisor:
-  image: wurstmeister/storm-supervisor
+  image: akuma12/storm-supervisor
   ports:
     - "8000"
     - "22"
@@ -21,7 +21,7 @@ supervisor:
     - nimbus:nimbus
     - pacemaker:pacemaker
 ui:
-  image: wurstmeister/storm-ui
+  image: akuma12/storm-ui
   ports:
     - "49080:8080"
     - "22"
