@@ -1,3 +1,8 @@
+zookeeper:
+  image: akuma12/zookeeper
+  ports:
+    - "49181:2181"
+    - "22"
 pacemaker:
   image: akuma12/storm-pacemaker
   ports: 
@@ -12,6 +17,7 @@ nimbus:
     - "22"
   links: 
     - pacemaker:pm
+    - zookeeper:zk
 supervisor:
   image: akuma12/storm-supervisor
   ports:
@@ -20,6 +26,7 @@ supervisor:
   links: 
     - nimbus:nimbus
     - pacemaker:pm
+    - zookeeper:zk
 ui:
   image: akuma12/storm-ui
   ports:
@@ -28,3 +35,4 @@ ui:
   links: 
     - nimbus:nimbus
     - pacemaker:pm
+    - zookeeper:zk

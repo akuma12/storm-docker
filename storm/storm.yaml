@@ -15,6 +15,9 @@
 # limitations under the License.
 # Adding a small change
 
+storm.zookeeper.servers:
+  - "%zookeeper%"
+
 pacemaker.host: "%pacemaker%"
 pacemaker.port: 6699
 pacemaker.childopts: "-Xmx1024m -Djava.net.preferIPv4Stack=true"
