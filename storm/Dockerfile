@@ -5,8 +5,6 @@ MAINTAINER akuma12
 RUN wget -q -O - http://mirrors.sonic.net/apache/storm/apache-storm-1.0.1/apache-storm-1.0.1.tar.gz | tar -xzf - -C /opt
 
 ENV STORM_HOME /opt/apache-storm-1.0.1
-ENV PM_PORT_2181_TCP_ADDR pm
-ENV NIMBUS_PORT_6627_TCP_ADDR nimbus
 
 RUN groupadd storm; useradd --gid storm --home-dir /home/storm --create-home --shell /bin/bash storm; chown -R storm:storm $STORM_HOME; mkdir /var/log/storm ; chown -R storm:storm /var/log/storm
 
