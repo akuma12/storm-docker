@@ -16,23 +16,15 @@
 # Adding a small change
 
 pacemaker.host: "%pacemaker%"
-pacemaker.port: 2181
+pacemaker.port: 6699
 pacemaker.childopts: "-Xmx1024m -Djava.net.preferIPv4Stack=true"
 
-nimbus.host: "%nimbus%"
-nimbus.thrift.port: 6627
-nimbus.childopts: "-Xmx1024m -Djava.net.preferIPv4Stack=true"
 nimbus.seeds: ["%nimbus%"]
+nimbus.childopts: "-Xmx1024m -Djava.net.preferIPv4Stack=true"
 
-drpc.servers:
-  - "%nimbus%"
-drpc.port: 3772
-drpc.invocations.port: 3773
-
-ui.port: 8080
 ui.childopts: "-Xmx768m -Djava.net.preferIPv4Stack=true"
 
-supervisor.childopts: "-Djava.net.preferIPv4Stack=true"
+supervisor.childopts: "-Xmx256m -Djava.net.preferIPv4Stack=true"
 
 worker.childopts:
     -Xmx2600m -Xms2600m -Xss256k -XX:MaxPermSize=128m -XX:PermSize=96m

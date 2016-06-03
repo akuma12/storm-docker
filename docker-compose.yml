@@ -1,11 +1,7 @@
-base:
-  image: akuma12/base
-  ports:
-    - "22"
 pacemaker:
   image: akuma12/storm-pacemaker
   ports: 
-    - "49181:2181"
+    - "49699:6699"
     - "22"
 nimbus:
   image: akuma12/storm-nimbus
