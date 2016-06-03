@@ -3,7 +3,7 @@ base:
   ports:
     - "22"
 pacemaker:
-  image: akuma12/storm
+  image: akuma12/storm-pacemaker
   ports: 
     - "49181:2181"
     - "22"
@@ -15,7 +15,7 @@ nimbus:
     - "49627:6627"
     - "22"
   links: 
-    - pacemaker:pacemaker
+    - pacemaker:pm
 supervisor:
   image: akuma12/storm-supervisor
   ports:
@@ -23,7 +23,7 @@ supervisor:
     - "22"
   links: 
     - nimbus:nimbus
-    - pacemaker:pacemaker
+    - pacemaker:pm
 ui:
   image: akuma12/storm-ui
   ports:
@@ -31,4 +31,4 @@ ui:
     - "22"
   links: 
     - nimbus:nimbus
-    - pacemaker:pacemaker
+    - pacemaker:pm

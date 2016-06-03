@@ -14,8 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-pacemaker.host:
-- "%pacemaker%"
+pacemaker.host: "%pacemaker%"
 pacemaker.port: 2181
 pacemaker.childopts: "-Xmx1024m -Djava.net.preferIPv4Stack=true"
 
