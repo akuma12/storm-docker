@@ -22,6 +22,7 @@ pacemaker.childopts: "-Xmx1024m -Djava.net.preferIPv4Stack=true"
 nimbus.host: "%nimbus%"
 nimbus.thrift.port: 6627
 nimbus.childopts: "-Xmx1024m -Djava.net.preferIPv4Stack=true"
+nimbus.seeds: ["%nimbus%"]
 
 drpc.servers:
   - "%nimbus%"
