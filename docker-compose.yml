@@ -1,3 +1,7 @@
+base:
+  image: akuma12/base
+  ports:
+    - "22"
 pacemaker:
   image: akuma12/storm
   ports: 

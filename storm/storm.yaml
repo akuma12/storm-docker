@@ -15,11 +15,11 @@
 # limitations under the License.
 
 pacemaker.host:
-- "$pacemaker%"
+- "%pacemaker%"
 pacemaker.port: 2181
 pacemaker.childopts: "-Xmx1024m -Djava.net.preferIPv4Stack=true"
 
-nimbus.host: "%nimbus"
+nimbus.host: "%nimbus%"
 nimbus.thrift.port: 6627
 nimbus.childopts: "-Xmx1024m -Djava.net.preferIPv4Stack=true"
 
@@ -46,7 +46,7 @@ worker.childopts:
 #    -Dcom.sun.management.jmxremote.port=1098
 #    -Dcom.sun.management.jmxremote.rmi.port=1099
 
-storm.local.dir: "/app/storm"
+storm.local.dir: "/opt/apache-storm-1.0.1"
 
 java.library.path: "/usr/lib/jvm/java-8-oracle"
 
